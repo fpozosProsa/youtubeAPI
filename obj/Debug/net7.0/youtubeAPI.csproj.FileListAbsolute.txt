@@ -5,8 +5,12 @@ C:\SicoaastNET\youtubeAPI\bin\Debug\net7.0\youtubeAPI.deps.json
 C:\SicoaastNET\youtubeAPI\bin\Debug\net7.0\youtubeAPI.runtimeconfig.json
 C:\SicoaastNET\youtubeAPI\bin\Debug\net7.0\youtubeAPI.dll
 C:\SicoaastNET\youtubeAPI\bin\Debug\net7.0\youtubeAPI.pdb
+C:\SicoaastNET\youtubeAPI\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\SicoaastNET\youtubeAPI\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\SicoaastNET\youtubeAPI\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
 C:\SicoaastNET\youtubeAPI\bin\Debug\net7.0\Microsoft.OpenApi.dll
+C:\SicoaastNET\youtubeAPI\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\SicoaastNET\youtubeAPI\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
 C:\SicoaastNET\youtubeAPI\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\SicoaastNET\youtubeAPI\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\SicoaastNET\youtubeAPI\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll

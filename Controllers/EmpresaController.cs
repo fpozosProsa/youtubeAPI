@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using youtubeAPI.DataStore;
 using youtubeAPI.Modelos;
@@ -107,7 +108,43 @@ namespace youtubeAPI.Controllers
             depto.Metros = empresaDto.Metros;
 
             return CreatedAtRoute("GetEmpresa", new { id = empresaDto.Id }, empresaDto);
-        }   
+        }
+
+        //Para utilizar patch descargaremos las soluciones:
+        //                                  Microsoft.AspNetCore.JsonPatch
+        //                                  Microsoft.AspNetCore.Mvc.NewtonsoftJson
+        [HttpPatch("{id:int}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult UpdateParcialEmpresa(int id, JsonPatchDocument<EmpresaDto> patchDto)
+        {
+            if (patchDto == null || id == 0)
+            {
+                return BadRequest();
+            }
+            var depto = EmpresaStore.EmpresaList.FirstOrDefault(e => e.Id == id);
+
+            patchDto.ApplyTo(depto, ModelState);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            return NoContent();
+        }
+        //[
+        //  {
+        //    "path": "/nombre",
+        //    "op": "replace",
+        //    "value": "Compras"
+        //  }
+        //]
+
+
+
+
+
+
 
     }
 }
