@@ -76,7 +76,6 @@ namespace youtubeAPI.Controllers
         [HttpDelete("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult DeleteEmpresa(int id)
         {
             if (id == 0)
@@ -93,7 +92,22 @@ namespace youtubeAPI.Controllers
             return NoContent();
         }
 
-        [HttpPut]
+        [HttpPut("{id:int}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult UpdateEmpresa(int id, [FromBody] EmpresaDto empresaDto)
+        {
+            if(empresaDto==null || id != empresaDto.Id)
+            {
+                return BadRequest();
+            }
+            var depto = EmpresaStore.EmpresaList.FirstOrDefault(e=>e.Id==id);
+            depto.Nombre = empresaDto.Nombre;
+            depto.Ocupantes = empresaDto.Ocupantes;
+            depto.Metros = empresaDto.Metros;
+
+            return CreatedAtRoute("GetEmpresa", new { id = empresaDto.Id }, empresaDto);
+        }   
 
     }
 }
